@@ -1,5 +1,4 @@
-﻿using System.Xml.Linq;
-
+﻿
 public class Time
 {
     private int hours;
@@ -25,26 +24,43 @@ public class Time
         get { return hours; }
         set
         {
-            if (value < 0 || value > 23)
+            try
             {
-                throw new ArgumentException("Invalid hours value");
-            }
 
-            hours = value;
+                if (value < 0 || value > 23)
+                    throw new ArgumentException("Invalid minutes value");
+                hours = value;
+
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.Message, "Try again: \n");
+                value = Convert.ToInt32(Console.ReadLine());
+                hours = value;
+            }
         }
-    }
+      }
 
     public int Minutes
     {
         get { return minutes; }
         set
         {
-            if (value < 0 || value > 59)
+            try
             {
-                throw new ArgumentException("Invalid minutes value");
-            }
 
-            minutes = value;
+            if (value < 0 || value > 59)
+                throw new ArgumentException("Invalid minutes value");
+                    minutes = value;
+                
+            }
+            catch(Exception Ex) {
+                Console.WriteLine(Ex.Message,"Try again: \n");
+                value = Convert.ToInt32(Console.ReadLine());
+                minutes = value;
+            }
+            
+           
         }
     }
 
@@ -53,12 +69,20 @@ public class Time
         get { return seconds; }
         set
         {
-            if (value < 0 || value > 59)
+            try
             {
-                throw new ArgumentException("Invalid seconds value");
-            }
 
-            seconds = value;
+                if (value < 0 || value > 59)
+                    throw new ArgumentException("Invalid minutes value");
+                seconds = value;
+
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.Message, "Try again: \n");
+                value = Convert.ToInt32(Console.ReadLine());
+                seconds = value;
+            }
         }
     }
 
